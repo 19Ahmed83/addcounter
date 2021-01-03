@@ -1,23 +1,18 @@
-import logo from './logo.svg';
+import React from'react';
 import './App.css';
 
 function App() {
+const[counter,setCounter]=React.useState([1,2,3])
+
+    const add=()=>{
+    const newcounter=Math.floor(Math.random()*10)
+        setCounter([...counter,newcounter])
+    }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        {counter.map((el,index)=><li key={index}>{el}</li>)}
+        <br/>
+        <button onClick={add}>add</button>
     </div>
   );
 }
